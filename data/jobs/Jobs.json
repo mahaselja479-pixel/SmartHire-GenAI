@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Python Full Stack Developer",
+    "company": "Infosys",
+    "skills": [
+      "Python",
+      "React",
+      "Django",
+      "REST API",
+      "MySQL"
+    ]
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "TCS",
+    "skills": [
+      "Python",
+      "TensorFlow",
+      "Deep Learning",
+      "OpenCV"
+    ]
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "Zoho",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ]
+  }
+]
