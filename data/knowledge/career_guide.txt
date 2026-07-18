@@ -1,0 +1,43 @@
+Python Full Stack Developer Roadmap
+
+Required Skills
+---------------
+Python
+Django
+Flask
+FastAPI
+REST APIs
+React
+JavaScript
+HTML
+CSS
+SQL
+Git
+GitHub
+Docker
+AWS
+Linux
+
+Resume Tips
+-----------
+Keep resume to one page.
+Mention measurable achievements.
+Use action verbs.
+Highlight internships.
+Add GitHub projects.
+
+Interview Tips
+--------------
+Prepare DSA basics.
+Practice Python coding.
+Know REST APIs.
+Understand SQL queries.
+Be ready to explain projects.
+
+Career Advice
+-------------
+Build real-world projects.
+Contribute to GitHub.
+Learn Docker.
+Learn AWS.
+Practice system design basics.
