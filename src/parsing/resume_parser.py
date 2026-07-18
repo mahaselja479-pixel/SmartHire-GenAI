@@ -48,9 +48,9 @@ Resume:
 
     content = response.choices[0].message.content
 
-    print("========== LLM OUTPUT ==========")
-    print(content)
-    print("================================")
+    # print("========== LLM OUTPUT ==========")
+    # print(content)
+    # print("================================")
 
     # Remove markdown if present
     content = content.replace("```json", "").replace("```", "").strip()
