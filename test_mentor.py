@@ -2,7 +2,7 @@ from src.mentor.career_mentor import (
     load_knowledge,
     chunk_text,
     create_chunk_embeddings,
-    retrieve_context
+    ask_career_mentor
 )
 
 knowledge = load_knowledge()
@@ -11,16 +11,13 @@ chunks = chunk_text(knowledge)
 
 embeddings = create_chunk_embeddings(chunks)
 
-question = "What skills should I learn for Python Full Stack Developer?"
+question = input("Ask Career Mentor: ")
 
-context = retrieve_context(
+answer = ask_career_mentor(
     question,
     chunks,
     embeddings
 )
 
-print("Question:")
-print(question)
-
-print("\nRetrieved Context:\n")
-print(context)
+print("\n========== AI Career Mentor ==========\n")
+print(answer)
