@@ -21,14 +21,31 @@ Candidate Resume:
 Target Job:
 {job_title}
 
-Generate:
+Generate interview questions in this format:
 
-1. 5 Technical Questions
-2. 3 HR Questions
-3. 3 Coding Questions
-4. 3 Project-Based Questions
+# Technical Questions
+1.
+2.
+3.
+4.
+5.
 
-Return the output in a clear numbered format.
+# HR Questions
+1.
+2.
+3.
+
+# Coding Questions
+1.
+2.
+3.
+
+# Project-Based Questions
+1.
+2.
+3.
+
+Keep the questions specific to the candidate's resume and the target job.
 """
 
     response = client.chat.completions.create(

@@ -33,17 +33,20 @@ def recommend_jobs(resume_skills, job_file="data/jobs/jobs.json"):
             resume_embedding,
             job_embedding
         )[0][0]
+        score = max(0.0, score)
 
         missing_skills = list(
             set(job_skills) - set(resume_skills)
         )
 
         recommendations.append({
-            "title": job["title"],
-            "company": job["company"],
-            "match_score": round(score * 100, 2),
-            "missing_skills": missing_skills
-        })
+    "title": job["title"],
+    "company": job["company"],
+    "location": job.get("location", "N/A"),
+    "skills": job["skills"],
+   "match_score": round(score * 100, 2),
+    "missing_skills": missing_skills
+})
 
     recommendations.sort(
         key=lambda x: x["match_score"],

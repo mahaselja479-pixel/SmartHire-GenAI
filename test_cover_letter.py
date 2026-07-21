@@ -2,16 +2,13 @@ from src.parsing.loader import extract_text_from_pdf
 from src.parsing.resume_parser import parse_resume
 from src.generate.cover_letter import generate_cover_letter
 
-resume_path = "data/resumes/MAHA SELJA_VK_Resume.pdf"
-
-text = extract_text_from_pdf(resume_path)
+text = extract_text_from_pdf("data/resumes/MAHA SELJA_VK_Resume.pdf")
 
 resume = parse_resume(text)
 
-cover_letter = generate_cover_letter(
+letter = generate_cover_letter(
     resume,
-    "Python Full Stack Developer",
-    "Infosys"
+    "Python Full Stack Developer"
 )
 
-print(cover_letter)
+print(letter)

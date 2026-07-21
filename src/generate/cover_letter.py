@@ -10,28 +10,20 @@ client = OpenAI(
 )
 
 
-def generate_cover_letter(resume_data, job_title, company):
+def generate_cover_letter(resume_data, job_title):
 
     prompt = f"""
-You are a professional HR expert.
+You are an HR Expert.
 
-Generate a professional cover letter.
-
-Candidate Resume:
-{resume_data}
+Write a professional cover letter.
 
 Job Title:
 {job_title}
 
-Company:
-{company}
+Resume:
+{resume_data}
 
-Instructions:
-- Professional tone
-- Around 250 words
-- Mention candidate skills
-- Explain why the candidate fits the role
-- End politely
+Return only the cover letter.
 """
 
     response = client.chat.completions.create(
@@ -42,7 +34,7 @@ Instructions:
                 "content": prompt
             }
         ],
-        temperature=0.5
+        temperature=0.4
     )
 
     return response.choices[0].message.content
