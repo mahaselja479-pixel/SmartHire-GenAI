@@ -1,11 +1,30 @@
+import os
 import json
 import time
-import streamlit as st
+from dotenv import load_dotenv
 from openai import OpenAI, RateLimitError
 
-# Create Groq client using Streamlit Secrets
+load_dotenv()
+
+
+# Get Groq API key from Streamlit Cloud Secrets or local .env
+def get_groq_api_key():
+    try:
+        import streamlit as st
+        return st.secrets["GROQ_API_KEY"]
+    except Exception:
+        return os.getenv("GROQ_API_KEY")
+
+
+groq_api_key = get_groq_api_key()
+
+if not groq_api_key:
+    raise ValueError("GROQ_API_KEY is not configured.")
+
+
+# Create Groq client
 client = OpenAI(
-    api_key=st.secrets["GROQ_API_KEY"],
+    api_key=groq_api_key,
     base_url="https://api.groq.com/openai/v1"
 )
 
@@ -38,6 +57,7 @@ Resume:
     # Retry if Groq temporarily rate-limits the request
     for attempt in range(3):
         try:
+
             response = client.chat.completions.create(
                 model="llama-3.1-8b-instant",
                 messages=[
@@ -62,14 +82,17 @@ Resume:
             return json.loads(content)
 
         except RateLimitError:
+
             if attempt < 2:
                 time.sleep(5)
+
             else:
                 return {
                     "error": "Groq API rate limit reached. Please wait a few minutes and try again."
                 }
 
         except json.JSONDecodeError:
+
             return {
                 "error": "The AI returned an invalid JSON response."
             }
